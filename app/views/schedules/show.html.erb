@@ -5,5 +5,15 @@
   <%= @schedule.title %>
 </p>
 
+<p>
+  <strong>Games:</strong>
+  <% @schedule.games.each do |g| %>
+    <p><%= g.opponent %></p>
+    <p><%= g.game_date %></p>
+    <p><%= g.location %></p>
+    <p><%= g.result %></p>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
 <%= link_to 'Back', schedules_path %>

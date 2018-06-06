@@ -10,5 +10,12 @@
   <%= @player.number %>
 </p>
 
+<p>
+  <strong>Positions</strong>
+  <% @player.positions.each do |pos| %>
+    <p><%= pos.name %></p>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

@@ -1,0 +1,15 @@
+<div class="form-group nested-fields">
+  <%= f.label :opponent %>
+  <%= f.text_field :opponent, class: 'form-control' %>
+
+  <%= f.label :date %>
+  <%= f.date_field :game_date, class: 'form-control' %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location, class: 'form-control' %>
+
+  <%= f.label :result %>
+  <%= f.text_field :result, class: 'form-control' %>
+
+  <%= link_to_remove_association 'Remove Technology', f %>
+</div>
