@@ -10,16 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606211607) do
+ActiveRecord::Schema.define(version: 20180606212356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.string "opponent"
+    t.date "game_date"
+    t.string "location"
+    t.string "result"
+    t.bigint "schedule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_games_on_schedule_id"
+  end
 
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_positions_on_player_id"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -46,4 +65,6 @@ ActiveRecord::Schema.define(version: 20180606211607) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "schedules"
+  add_foreign_key "positions", "players"
 end
