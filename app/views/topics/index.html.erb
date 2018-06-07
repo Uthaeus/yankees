@@ -3,10 +3,15 @@
   <div>
     <% @topics.each do |t| %>
       <div class="well">
-        <h4><%= t.title %></h4><br />
-        <h5><%= t.subtitle %></h5>
-        <hr/>
+        <div class="row">
+          <div class="col-md-8">
+            <h4><%= link_to t.title, t %></h4>
+            <h5><%= t.subtitle %></h5>
+            <hr/>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
+  <%= link_to "New Topic", new_topic_url, class: 'btn' %>
 </div>

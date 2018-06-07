@@ -32,8 +32,8 @@ class TopicsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @topic.update(blog_params)
-        format.html { redirect_to @topic, notice: 'Blog was successfully updated.' }
+      if @topic.update(topic_params)
+        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
         format.json { render :show, status: :ok, location: @topic }
       else
         format.html { render :edit }
@@ -45,7 +45,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Topic was successfully destroyed.' }
+      format.html { redirect_to topics_url, notice: 'Topic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -57,7 +57,7 @@ class TopicsController < ApplicationController
     end
 
     def topic_params
-      params.require(:topic).permit(:title, :subtitle)
+      params.require(:topic).permit(:title, :subtitle, :body)
     end
 
 end
