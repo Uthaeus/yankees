@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h2><%= @topic.title %></h2><br />
+
+  <hr>
+
+  <h4><%= @topic.subtitle %></h4>
+
+  <div class="well">
+    <%= @topic.body %>
+  </div>
+
+<!--   Comments Here
+ -->
+
+  <div>
+    <%= link_to 'Edit', edit_topic_path(@topic) %> |
+    <%= link_to 'Back', topics_path %>
+  </div>
+</div>
