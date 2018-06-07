@@ -1,23 +1,27 @@
 <div class="container">
+  <div class="row">
+    <div class="col-md-8">
 
-  <h2><%= @topic.title %></h2><br />
+      <h2><%= @topic.title %></h2>
 
-  <hr>
+      <hr>
 
-  <h4><%= @topic.subtitle %></h4>
+      <h4><%= @topic.subtitle %></h4>
 
-  <div class="well">
-    <%= @topic.body %>
-  </div>
+      <div class="well">
+        <%= @topic.body %>
+      </div>
 
-  <%= render 'comments/comment_form' %>
+      <%= render 'comments/comment_form' %>
 
-  <div id="comments" data-topic-id="<%= @topic.id %>">
-    <%= render @topic.comments %>
-  </div>
+      <div id="comments" data-topic-id="<%= @topic.id %>">
+        <%= render @topic.comments %>
+      </div>
 
-  <div>
-    <%= link_to 'Edit', edit_topic_path(@topic) %> |
-    <%= link_to 'Back', topics_path %>
+      <div>
+        <%= link_to 'Edit', edit_topic_path(@topic) %> |
+        <%= link_to 'Back', topics_path %>
+      </div>
+    </div>
   </div>
 </div>
