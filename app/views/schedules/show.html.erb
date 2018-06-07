@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h2><%= @schedule.title %></h2>
 
-<p>
-  <strong>Title:</strong>
-  <%= @schedule.title %>
-</p>
+  <div class="row featurette">
+    <div class="col-md-7">
+      <% @schedule.games.each do |g| %>
+        <h3 class="featurette-heading"><%= g.opponent %></h3>
+        <p class="lead"><%= g.game_date %></p>
+        <p><%= g.location %></p>
+        <p><%= g.result %></p>
+        <hr class="featurette-divider">
+      <% end %>
+    </div>
+    <div class="col-md-5">
+      <img class="featurette-image img-fluid mx-auto" src="holder.js/500x500/auto" alt="Generic placeholder image">
+    </div>
+  </div>
 
-<p>
-  <strong>Games:</strong>
-  <% @schedule.games.each do |g| %>
-    <p><%= g.opponent %></p>
-    <p><%= g.game_date %></p>
-    <p><%= g.location %></p>
-    <p><%= g.result %></p>
-  <% end %>
-</p>
+  <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+  <%= link_to 'Back', schedules_path %>
+</div>
+<hr class="featurette-divider">
 
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
