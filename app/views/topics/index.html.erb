@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Topics</h2>
+  <div>
+    <% @topics.each do |t| %>
+      <div class="well">
+        <h4><%= t.title %></h4><br />
+        <h5><%= t.subtitle %></h5>
+        <hr/>
+      </div>
+    <% end %>
+  </div>
+</div>
