@@ -10,8 +10,11 @@
     <%= @topic.body %>
   </div>
 
-<!--   Comments Here
- -->
+  <%= render 'comments/comment_form' %>
+
+  <div id="comments" data-topic-id="<%= @topic.id %>">
+    <%= render @topic.comments %>
+  </div>
 
   <div>
     <%= link_to 'Edit', edit_topic_path(@topic) %> |
