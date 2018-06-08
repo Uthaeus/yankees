@@ -1,5 +1,5 @@
 <div class="container">
-  <h2><%= @schedule.title %></h2>
+  <h1><%= @schedule.title %></h1>
 
   <div class="row featurette">
     <div class="col-md-7">
@@ -12,12 +12,12 @@
       <% end %>
     </div>
     <div class="col-md-5">
-      <img class="featurette-image img-fluid mx-auto" src="holder.js/500x500/auto" alt="Generic placeholder image">
+      <%= image_tag('ballpark.jpg', {class: "featurette-image img-fluid mx-auto"}) %>
     </div>
   </div>
 
-  <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-  <%= link_to 'Back', schedules_path %>
+  <%= link_to 'Edit', edit_schedule_path(@schedule), class: 'btn' %> |
+  <%= link_to 'Back', schedules_path, class: 'btn' %>
 </div>
 <hr class="featurette-divider">
 

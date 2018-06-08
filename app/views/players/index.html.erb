@@ -3,21 +3,24 @@
   <h1>Roster</h1>
 
   <div class="row featurette">
-    <div class="col-md-7 order-md-2">
+    <div class="col-md-7">
       <% @players.each do |player| %>
-        <h4 class="featurette-heading"><%= player.name %> #<%= player.number %></h4>
+        <h6 class="featurette-heading"><%= link_to player.name, player %> #<%= player.number %></h6>
         <hr class="featurette-divider">
         <div class="row">
           <% player.positions.each do |p| %>
-            <p class="lead">| <%= p.name %> |</p>
+            <h4 class="lead">| <%= p.name %> |</h4>
           <% end %>
         </div>
         <hr class="featurette-divider">
       <% end %>
     </div>
+    <div class="col-md-4">
+      <%= image_tag 'atnt.jpg', class: "featurette-image img-fluid mx-auto" %>
+    </div>
   </div>
 
-  <%= link_to 'New Player', new_player_path %>
+  <%= link_to 'New Player', new_player_path, class: "btn" %>
 </div>
 
 <hr class="featurette-divider">
