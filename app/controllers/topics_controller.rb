@@ -6,8 +6,9 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.includes(:comments).find(params[:id])
     @comment = Comment.new
+    @topic = Topic.includes(:comments).find(params[:id])
+    
   end
 
   def new
