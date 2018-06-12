@@ -61,6 +61,7 @@ gem 'carrierwave-aws', '~> 1.3'
 gem 'wice_grid', '~> 3.6', '>= 3.6.2'
 gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
 gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
+gem 'petergate', '~> 1.8', '>= 1.8.1'
 
 
 

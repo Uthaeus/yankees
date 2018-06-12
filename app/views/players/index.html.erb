@@ -6,34 +6,28 @@
 
       <%= link_to 'Add New Player', new_player_path, class: "btn btn-light" %>
     </div>
-    <div class="col-md-3 roster-logo text-center">
+    <div class="col-md-3 roster-logo text-center bot-marg">
       <%= image_tag 'yankee_logo.gif', width: '75%' %>
     </div>
   </div>
+  <br />
 
   <% @players.each do |player| %>
     <div class="row featurette">
       <div class="col-md-8">
-        
-          <h6 class="featurette-heading"><%= link_to player.name, player %> #<%= player.number %></h6>
-          
-          <div class="row">
-            <% player.positions.each do |p| %>
-              <h4 class="lead">| <%= p.name %> |</h4>
-            <% end %>
-          </div>
-          
-        
+        <h6 class="featurette-heading"><%= link_to player.name, player %> #<%= player.number %></h6>
+        <div class="row">
+          <% player.positions.each do |p| %>
+            <h4 class="lead">| <%= p.name %> |</h4>
+          <% end %>
+        </div>
       </div>
       <div class="col-md-4 text-center">
-        <%= image_tag player_img(player.thumb_image, 'thumb'), class: 'rounded-circle' %>
+        <%= image_tag player_img(player.thumb_image, 'thumb'), class: 'rounded-circle sched-title' %>
       </div>
-      
     </div>
     <hr class="featurette-divider">
   <% end %>
-
-  
 </div>
 
 <hr class="featurette-divider">
