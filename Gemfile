@@ -63,6 +63,5 @@ gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
 gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
 gem 'petergate', '~> 1.8', '>= 1.8.1'
 
-
-
+ruby "2.4.1"
 
