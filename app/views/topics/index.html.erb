@@ -1,17 +1,24 @@
 <div class="container">
-  <h2>Topics</h2>
+  <div class="well">
+    <h2>Welcome to the Discussion page.</h2>
+    <h3>Join in on an ongoing discussion or start your own here</h3>
+    <%= link_to "New Topic", new_topic_url, class: 'btn btn-secondary' %>
+  </div>
   <div>
     <% @topics.each do |t| %>
-      <div class="well">
-        <div class="row">
-          <div class="col-md-8">
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class='card topic-card'>
             <h4><%= link_to t.title, t %></h4>
             <h5><%= t.subtitle %></h5>
-            <hr/>
+            <div>
+              <small>Posted by: <%= t.user.first_name %> <%= distance_of_time_in_words(t.created_at, Time.now) %> ago</small>
+            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-  <%= link_to "New Topic", new_topic_url, class: 'btn' %>
+  
 </div>
