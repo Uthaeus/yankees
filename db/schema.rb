@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612183319) do
+ActiveRecord::Schema.define(version: 20180612211107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20180612183319) do
     t.datetime "updated_at", null: false
     t.text "thumb_image"
     t.text "main_image"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -57,6 +59,8 @@ ActiveRecord::Schema.define(version: 20180612183319) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -91,6 +95,8 @@ ActiveRecord::Schema.define(version: 20180612183319) do
   add_foreign_key "comments", "topics"
   add_foreign_key "comments", "users"
   add_foreign_key "games", "schedules"
+  add_foreign_key "players", "users"
   add_foreign_key "positions", "players"
+  add_foreign_key "schedules", "users"
   add_foreign_key "topics", "users"
 end

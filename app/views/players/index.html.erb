@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-9">
       <h1 class="roster-title">Yankees Roster</h1> 
-      <% if !current_user GuestUser %>
+      <% if !current_user.is_a? GuestUser %>
         <%= link_to 'Add New Player', new_player_path, class: "btn btn-light" %>
       <% end %>
     </div>
@@ -29,7 +29,9 @@
     </div>
     <hr class="featurette-divider">
   <% end %>
+
+
+  <hr class="featurette-divider">
+
+  <%= link_to 'Back', root_path, class: 'btn btn-light' %>
 </div>
-
-<hr class="featurette-divider">
-

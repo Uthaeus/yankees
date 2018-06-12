@@ -26,6 +26,7 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
+    @schedule.user_id = current_user.id 
 
     respond_to do |format|
       if @schedule.save

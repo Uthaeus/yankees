@@ -1,5 +1,5 @@
 class Player < ApplicationRecord
-
+  belongs_to :user
   validates_presence_of :name, :number
 
   has_many :positions
