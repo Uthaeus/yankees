@@ -2,23 +2,27 @@
 <div class="container">
   <h1>Roster</h1>
 
-  <div class="row featurette">
-    <div class="col-md-7">
-      <% @players.each do |player| %>
-        <h6 class="featurette-heading"><%= link_to player.name, player %> #<%= player.number %></h6>
-        <hr class="featurette-divider">
-        <div class="row">
-          <% player.positions.each do |p| %>
-            <h4 class="lead">| <%= p.name %> |</h4>
-          <% end %>
-        </div>
-        <hr class="featurette-divider">
-      <% end %>
+  <% @players.each do |player| %>
+    <div class="row featurette">
+      <div class="col-md-8">
+        
+          <h6 class="featurette-heading"><%= link_to player.name, player %> #<%= player.number %></h6>
+          
+          <div class="row">
+            <% player.positions.each do |p| %>
+              <h4 class="lead">| <%= p.name %> |</h4>
+            <% end %>
+          </div>
+          
+        
+      </div>
+      <div class="col-md-4">
+        <p>test</p>
+      </div>
+      
     </div>
-    <div class="col-md-4">
-      <%= image_tag 'atnt.jpg', class: "featurette-image img-fluid mx-auto" %>
-    </div>
-  </div>
+    <hr class="featurette-divider">
+  <% end %>
 
   <%= link_to 'New Player', new_player_path, class: "btn" %>
 </div>
