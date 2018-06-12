@@ -1,28 +1,33 @@
 <div class="container">
-  <div class="row">
+  <div class="row topic-card">
     <div class="col-md-1">
-    </div>
+    </div> 
     <div class="col-md-6">
-      <%= image_tag player_img(@player.main_image, 'main') %>
+      <%= image_tag player_img(@player.main_image, 'main'), width: '100%' %>
     </div>
     <div class="col-md-4">
-      <h2>
-        <%= @player.name %>
-      </h2>
+      <div class="text-center">
+        <%= image_tag "yankee_logo.gif", width: '75%' %>
+      </div>
+      <div class="player-atts text-center">
+        <h2>
+          <%= @player.name %>
+        </h2>
 
-      <h3>
-        #<%= @player.number %>
-      </h3>
+        <h3>
+          #<%= @player.number %>
+        </h3>
 
-      <h5>
+        
         <% @player.positions.each do |pos| %>
-          <p><%= pos.name %></p>
+          <h4><%= pos.name %></h4>
         <% end %>
-      </h5>
+      </div>
+      
     </div>
   </div><br />
   <hr />
 
-  <%= link_to 'Edit', edit_player_path(@player), class: 'btn' %> |
-  <%= link_to 'Back', players_path, class: 'btn' %>
+  <%= link_to 'Edit', edit_player_path(@player), class: 'btn btn-light' %> |
+  <%= link_to 'Back', players_path, class: 'btn btn-light' %>
 </div>

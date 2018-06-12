@@ -1,8 +1,19 @@
 <div class="container">
-  <div class="well">
-    <h2>Welcome to the Discussion page.</h2>
-    <h3>Join in on an ongoing discussion or start your own here</h3>
-    <%= link_to "New Topic", new_topic_url, class: 'btn btn-secondary' %>
+  <div class="card topic-card">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">Welcome to the Discussion page.</h2>
+          <h3 class="card-text">Join in on an ongoing discussion or start your own here</h3>
+          <%= link_to "New Topic", new_topic_url, class: 'btn btn-secondary btn-block' %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <%= image_tag 'yankee_logo.gif', width: '75%' %>
+        </div>
+      </div>
+    </div>
   </div>
   <div>
     <% @topics.each do |t| %>
