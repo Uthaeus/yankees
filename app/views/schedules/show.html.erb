@@ -1,23 +1,39 @@
 <div class="container">
-  <h1><%= @schedule.title %></h1>
+  <div class="top-marg">
+    <div class="row">
+      <div class="col-md-9">
+        <div class='jumbotron'>
+          <h1><%= @schedule.title %></h1>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-center">
+          <%= image_tag 'yankee_logo.gif', width: '75%' %>
+        </div>
+      </div>
+  </div>
 
   <div class="row featurette">
     <div class="col-md-7">
       <% @schedule.games.each do |g| %>
-        <h3 class="featurette-heading"><%= g.opponent %></h3>
-        <p class="lead"><%= g.game_date %></p>
-        <p><%= g.location %></p>
-        <p><%= g.result %></p>
-        <hr class="featurette-divider">
+        <div class="row">
+          <div class="col-md-8">
+            <h3><%= g.opponent %></h3>
+          </div>
+          <div class="col-md-4">
+            <p class="lead"><%= g.game_date %></p>
+            <p><%= g.location %></p>
+            <p><%= g.result %></p>
+          </div>
+        </div><br />
+        <hr class="my-4">
+
       <% end %>
-    </div>
-    <div class="col-md-5">
-      <%= image_tag('ballpark.jpg', {class: "featurette-image img-fluid mx-auto"}) %>
     </div>
   </div>
 
-  <%= link_to 'Edit', edit_schedule_path(@schedule), class: 'btn' %> |
-  <%= link_to 'Back', schedules_path, class: 'btn' %>
+  <%= link_to 'Edit', edit_schedule_path(@schedule), class: 'btn btn-light' %> |
+  <%= link_to 'Back', schedules_path, class: 'btn btn-light' %>
 </div>
 <hr class="featurette-divider">
 

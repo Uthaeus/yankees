@@ -14,5 +14,7 @@
 //= require jquery
 //= require cocoon
 //= require cable
+//= require wice_grid
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .

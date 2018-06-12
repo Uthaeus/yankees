@@ -10,6 +10,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/1
   # GET /schedules/1.json
   def show
+    @grid = initialize_grid(Schedule)
   end
 
   # GET /schedules/new
