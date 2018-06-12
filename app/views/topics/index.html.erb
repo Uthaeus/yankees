@@ -4,8 +4,12 @@
       <div class="col-md-8">
         <div class="card-body">
           <h2 class="card-title">Welcome to the Discussion page.</h2>
-          <h3 class="card-text">Join in on an ongoing discussion or start your own here</h3>
-          <%= link_to "New Topic", new_topic_url, class: 'btn btn-secondary btn-block' %>
+          <% if !current_user.is_a? GuestUser %>
+            <h3 class="card-text">Join in on an ongoing discussion or start your own here</h3>
+            <%= link_to "New Topic", new_topic_url, class: 'btn btn-secondary btn-block' %>
+          <% else %>
+            <h3 class="card-text">Sign in or sign up to start a new conversation.</h3>
+          <% end %>
         </div>
       </div>
       <div class="col-md-4">

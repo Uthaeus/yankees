@@ -31,9 +31,14 @@
       <% end %>
     </div>
   </div>
-
-  <%= link_to 'Edit', edit_schedule_path(@schedule), class: 'btn btn-light' %> |
-  <%= link_to 'Back', schedules_path, class: 'btn btn-light' %>
+  <div class="topic-card">
+    <% if current_user.role == :admin %>
+      <%= link_to 'Edit', edit_schedule_path(@schedule), class: 'btn btn-light' %> |
+      <%= link_to 'Back', schedules_path, class: 'btn btn-light' %>
+    <% else %>
+      <%= link_to 'Back', schedules_path, class: 'btn btn-light' %>
+    <% end %>
+  </div>
 </div>
 <hr class="featurette-divider">
 

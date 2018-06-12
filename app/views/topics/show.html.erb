@@ -18,10 +18,13 @@
       <div id="comments" data-topic-id="<%= @topic.id %>" >
         <%= render @topic.comments %>
       </div>
-
       <div class="topic-card">
-        <%= link_to 'Edit', edit_topic_path(@topic), class: 'btn btn-light' %> |
-        <%= link_to 'Back', topics_path, class: 'btn btn-light' %> | <%= link_to 'Delete', @topic, class: 'btn btn-light', method: :delete, data: {confirm: 'Are you sure?'} %>
+        <% if @topic.user_id == current_user.id || current_user.role == :admin %>   
+          <%= link_to 'Edit', edit_topic_path(@topic), class: 'btn btn-light' %> |
+          <%= link_to 'Back', topics_path, class: 'btn btn-light' %> | <%= link_to 'Delete', @topic, class: 'btn btn-light', method: :delete, data: {confirm: 'Are you sure?'} %>
+        <% else %>
+          <%= link_to 'Back', topics_path, class: 'btn btn-light' %>
+        <% end %>
       </div>
     </div>
     <div class="col-md-4">

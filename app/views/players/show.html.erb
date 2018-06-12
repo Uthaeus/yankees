@@ -27,7 +27,13 @@
     </div>
   </div><br />
   <hr />
-
-  <%= link_to 'Edit', edit_player_path(@player), class: 'btn btn-light' %> |
-  <%= link_to 'Back', players_path, class: 'btn btn-light' %>
+  <div class="topic-card">
+    <% if @player.user_id == current_user.id || current_user.role == :admin %>
+      <%= link_to 'Edit', edit_player_path(@player), class: 'btn btn-light' %> |
+      <%= link_to 'Back', players_path, class: 'btn btn-light' %> |
+      <%= link_to 'Delete', @player, class: 'btn btn-light', method: :delete, data: { confirm: "Are you sure?" } %>
+    <% else %>
+      <%= link_to 'Back', players_path, class: 'btn btn-light' %>
+    <% end %>
+  </div>
 </div>
