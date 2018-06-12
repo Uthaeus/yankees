@@ -1,26 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-1">
     </div>
     <div class="col-md-6">
-      <p>
-        <strong>Name:</strong>
+      <%= image_tag player_img(@player.main_image, 'main') %>
+    </div>
+    <div class="col-md-4">
+      <h2>
         <%= @player.name %>
-      </p>
+      </h2>
 
-      <p>
-        <strong>Number:</strong>
-        <%= @player.number %>
-      </p>
+      <h3>
+        #<%= @player.number %>
+      </h3>
 
-      <p>
-        <strong>Positions</strong>
+      <h5>
         <% @player.positions.each do |pos| %>
           <p><%= pos.name %></p>
         <% end %>
-      </p>
+      </h5>
     </div>
-  </div>
+  </div><br />
   <hr />
 
   <%= link_to 'Edit', edit_player_path(@player), class: 'btn' %> |

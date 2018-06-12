@@ -54,3 +54,11 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'redis', '~> 4.0', '>= 4.0.1'
+gem 'dotenv', '~> 2.4'
+gem 'carrierwave', '~> 1.2', '>= 1.2.2'
+gem 'mini_magick', '~> 4.8'
+gem 'carrierwave-aws', '~> 1.3'
+
+
+
+
