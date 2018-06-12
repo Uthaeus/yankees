@@ -1,14 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
-
-      <h2><%= @topic.title %></h2>
-
-      <h4><%= @topic.subtitle %></h4>
-
-      <div class="well">
-        <%= @topic.body %>
+    <div class="col-md-8 top-marg">
+      <div class="jumbotron">
+        <h2 class="display-4"><%= @topic.title %></h2>
+        <h4 class="lead"><%= @topic.subtitle %></h4>
+        <hr class="my-4">
+        <p><%= @topic.body %></p>
       </div>
+
 
       <hr />
 
@@ -20,10 +19,16 @@
         <%= render @topic.comments %>
       </div>
 
-      <div>
-        <%= link_to 'Edit', edit_topic_path(@topic), class: 'btn' %> |
-        <%= link_to 'Back', topics_path, class: 'btn' %> | <%= link_to 'Delete', @topic, class: 'btn', method: :delete, data: {confirm: 'Are you sure?'} %>
+      <div class="topic-card">
+        <%= link_to 'Edit', edit_topic_path(@topic), class: 'btn btn-light' %> |
+        <%= link_to 'Back', topics_path, class: 'btn btn-light' %> | <%= link_to 'Delete', @topic, class: 'btn btn-light', method: :delete, data: {confirm: 'Are you sure?'} %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="text-center show-logo">
+        <%= image_tag 'yankee_logo.gif', width: '75%' %>
       </div>
     </div>
   </div>
 </div>
+
