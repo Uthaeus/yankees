@@ -1,39 +1,43 @@
-<div class="row"
-  <div class="col-md-8">
-    <%= form_with(model: schedule, local: true) do |f| %>
-      <% if schedule.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+<div class="container top-marg">
+  <div class="row"
+    <div class="col-md-8">
+      <%= form_with(model: schedule, local: true) do |f| %>
+        <% if schedule.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
 
-          <ul>
-          <% schedule.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
+            <ul>
+            <% schedule.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <h3>Schedule:</h3>
+
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, id: :schedule_title, class: 'form-control' %>
         </div>
-      <% end %>
-
-      <div class="field">
-        <%= f.label :title %>
-        <%= f.text_field :title, id: :schedule_title %>
-      </div>
-
-      <div>
-        <h3>Games</h3>
+        <hr />
+        <br />
         <div>
-          <%= f.fields_for :games do |g| %>
-            <%= render 'game_fields', f: g %>
-          <% end %>
-
+          <h3>Games:</h3>
           <div>
-            <%= link_to_add_association 'Add Game', f, :games %>
+            <%= f.fields_for :games do |g| %>
+              <%= render 'game_fields', f: g %>
+            <% end %>
+
+            <div>
+              <%= link_to_add_association 'Add Game', f, :games, class: 'btn btn-info btn-sm' %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-    <% end %>
+        <div class="form-group top-marg">
+          <%= f.submit 'Save Form', class: 'btn btn-primary btn-block', width: '75%' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
